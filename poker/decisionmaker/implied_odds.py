@@ -1,4 +1,4 @@
-from poker.decisionmaker.outs_calculator import Outs_Calculator
+from  decisionmaker.outs_calculator import Outs_Calculator
 
 
 class Implied_Odds(object):

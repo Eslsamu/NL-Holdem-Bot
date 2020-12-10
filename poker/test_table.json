@@ -1,0 +1,22 @@
+{
+  "is_my_turn" : 0,
+  "table_cards" : [],
+  "mycards" : ["3S","5C"],
+  "total_pot" : 3,
+  "players_in_game" : [0,1],
+  "player_funds" : [100,100,0,0,0,0],
+  "player_names" : ["bot","a","b","empty","empty","empty"],
+  "player_pots" : [2,1,0,0,0,0],
+  "collusion_cards" : [],
+  "collusion_player_dropped_out" : [],
+  "current_round_pot" : 3,
+  "dealer_position" : 1,
+  "currentCallValue" : 0,
+  "raise_value" : 4,
+  "checkButton" : 1,
+  "allInCallButton" : 0,
+  "lost_everything" : 0,
+  "gameNumber" : 1,
+  "smallBlind" : 1,
+  "bigBlind" : 2
+}

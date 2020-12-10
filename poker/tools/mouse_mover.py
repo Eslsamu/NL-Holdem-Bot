@@ -6,8 +6,12 @@ import time
 import numpy as np
 from configobj import ConfigObj
 
-from poker import pymouse
-from poker.tools.vbox_manager import VirtualBoxController
+# some_file.py
+import sys
+# insert at 1, 0 is the script path (or '' in REPL)
+sys.path.insert(1, '../pymouse')
+import pymouse
+from  tools.vbox_manager import VirtualBoxController
 
 log = logging.getLogger(__name__)
 

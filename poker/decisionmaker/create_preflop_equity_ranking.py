@@ -5,7 +5,7 @@ import time
 from collections import OrderedDict
 from operator import itemgetter
 
-from poker.decisionmaker.montecarlo_python import MonteCarlo
+from  decisionmaker.montecarlo_python import MonteCarlo
 
 if __name__ == '__main__':
     Simulation = MonteCarlo()

@@ -7,9 +7,9 @@ from unittest.mock import MagicMock
 import pandas as pd
 from PIL import Image
 
-from poker.tools.mongo_manager import GameLogger
-from poker.tools.mongo_manager import StrategyHandler
-from poker.tools.mongo_manager import UpdateChecker
+from  tools.mongo_manager import GameLogger
+from  tools.mongo_manager import StrategyHandler
+from  tools.mongo_manager import UpdateChecker
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)

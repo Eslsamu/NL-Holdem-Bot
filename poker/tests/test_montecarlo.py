@@ -9,7 +9,7 @@ from unittest.mock import MagicMock
 
 import numpy as np
 
-from poker.decisionmaker import montecarlo_python as mc
+from  decisionmaker import montecarlo_python as mc
 
 
 class TestMonteCarlo(unittest.TestCase):

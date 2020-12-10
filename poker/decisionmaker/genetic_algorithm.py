@@ -4,8 +4,8 @@ Assesses the log file and checks how the parameters in strategies.xml need to be
 
 from configobj import ConfigObj
 
-from poker.tools.mongo_manager import GameLogger, StrategyHandler
-
+from  tools.mongo_manager import GameLogger, StrategyHandler
+import logging
 
 class GeneticAlgorithm(object):
     def __init__(self, write_update, L):

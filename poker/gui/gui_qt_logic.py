@@ -5,24 +5,24 @@ import matplotlib
 if not (platform == "linux" or platform == "linux2"):
     matplotlib.use('Qt5Agg')
 from PyQt5.QtCore import *
-from poker.scraper.table_setup import TableSetupActionAndSignals
-from poker.scraper.ui_table_setup import Ui_table_setup_form
-from poker.tools.mongo_manager import MongoManager
+from scraper.table_setup import TableSetupActionAndSignals
+from  scraper.ui_table_setup import Ui_table_setup_form
+from  tools.mongo_manager import MongoManager
 
 from matplotlib.backends.backend_qt5agg import (
     FigureCanvasQTAgg as FigureCanvas)
 from matplotlib.figure import Figure
 from weakref import proxy
-from poker.gui.gui_qt_ui_genetic_algorithm import *
-from poker.gui.gui_qt_ui_strategy_manager import *
-from poker.gui.GUI_QT_ui_analyser import *
-from poker.gui.setup import *
-from poker.gui.help import *
-from poker.tools.vbox_manager import VirtualBoxController
+from  gui.gui_qt_ui_genetic_algorithm import *
+from  gui.gui_qt_ui_strategy_manager import *
+from  gui.GUI_QT_ui_analyser import *
+from  gui.setup import *
+from  gui.help import *
+from  tools.vbox_manager import VirtualBoxController
 from PyQt5.QtWidgets import QMessageBox
 import webbrowser
-from poker.decisionmaker.genetic_algorithm import *
-from poker.decisionmaker.curvefitting import *
+from  decisionmaker.genetic_algorithm import *
+from  decisionmaker.curvefitting import *
 import os
 import logging
 from configobj import ConfigObj

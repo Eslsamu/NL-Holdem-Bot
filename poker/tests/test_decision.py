@@ -3,10 +3,10 @@ from unittest.mock import MagicMock
 
 import numpy as np
 
-from poker.decisionmaker.decisionmaker import Decision
-from poker.decisionmaker.decisionmaker import DecisionTypes
-from poker.tests import init_table
-from poker.tools.mongo_manager import StrategyHandler
+from  decisionmaker.decisionmaker import Decision
+from  decisionmaker.decisionmaker import DecisionTypes
+from  tests import init_table
+from  tools.mongo_manager import StrategyHandler
 
 
 class TestDecision(TestCase):

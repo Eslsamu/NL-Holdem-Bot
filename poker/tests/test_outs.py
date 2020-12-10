@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from poker.decisionmaker.outs_calculator import Outs_Calculator
+from  decisionmaker.outs_calculator import Outs_Calculator
 
 
 class TestPocketPairToSet(TestCase):

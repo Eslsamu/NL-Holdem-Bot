@@ -7,9 +7,9 @@ import numpy as np
 from PIL import Image, ImageGrab, ImageFilter
 from pytesseract import pytesseract
 
-from poker.tools.helper import memory_cache
-from poker.tools.mongo_manager import MongoManager
-from poker.tools.vbox_manager import VirtualBoxController
+from tools.helper import memory_cache
+from  tools.mongo_manager import MongoManager
+from  tools.vbox_manager import VirtualBoxController
 
 log = logging.getLogger(__name__)
 

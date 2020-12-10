@@ -3,8 +3,8 @@ from unittest.mock import MagicMock
 
 from decisionmaker.decisionmaker import Decision
 
-from poker.decisionmaker.current_hand_memory import CurrentHandPreflopState
-from poker.tools.mongo_manager import StrategyHandler
+from  decisionmaker.current_hand_memory import CurrentHandPreflopState
+from  tools.mongo_manager import StrategyHandler
 from . import init_table
 
 

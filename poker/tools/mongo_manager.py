@@ -17,7 +17,7 @@ import requests
 from configobj import ConfigObj
 from pymongo import MongoClient
 
-from poker.tools.helper import COMPUTER_NAME
+from  tools.helper import COMPUTER_NAME
 
 
 class UpdateChecker():
@@ -203,9 +203,10 @@ class GameLogger(object, metaclass=Singleton):
         self.mongodb = self.mongoclient.neuron_poker
 
     def clean_database(self):
-        if os.environ['COMPUTERNAME'] == 'NICOLAS-ASUS' or os.environ['COMPUTERNAME'] == 'Home-PC-ND':
-            # self.mongodb.rounds.remove({})
-            self.mongodb.collusion.remove({})
+        pass
+        #if os.environ['COMPUTERNAME'] == 'NICOLAS-ASUS' or os.environ['COMPUTERNAME'] == 'Home-PC-ND':
+        #    # self.mongodb.rounds.remove({})
+         #   self.mongodb.collusion.remove({})
 
     def isIterable(self, x):
         # use str instead of basestring if Python3
@@ -229,8 +230,6 @@ class GameLogger(object, metaclass=Singleton):
         for key, val in vars(d).items():
             if len(" ".join(str(ele) for ele in self.isIterable(val))) < 20:
                 dDict[key] = " ".join(str(ele) for ele in self.isIterable(val))
-
-        pDict['computername'] = os.environ['COMPUTERNAME']
 
         Dh = pd.DataFrame(hDict, index=[0])
         Dt = pd.DataFrame(tDict, index=[0])
@@ -598,7 +597,7 @@ class GameLogger(object, metaclass=Singleton):
         return pd.DataFrame(list(cursor))
 
     def optimize_preflop_call_parameters(self, p_name, p_value, game_stage, decision):
-        from poker.decisionmaker.curvefitting import Curvefitting
+        from  decisionmaker.curvefitting import Curvefitting
         L = GameLogger()
         df = L.get_neural_training_data(p_name, p_value, game_stage, decision)
 

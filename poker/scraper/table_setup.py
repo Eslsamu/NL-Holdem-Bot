@@ -6,10 +6,10 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 from PyQt5.QtWidgets import QMessageBox
 
-from poker.scraper.screen_operations import get_table_template_image, get_ocr_float, take_screenshot, \
+from scraper.screen_operations import get_table_template_image, get_ocr_float, take_screenshot, \
     crop_screenshot_with_topleft_corner
-from poker.tools.helper import COMPUTER_NAME
-from poker.tools.mongo_manager import MongoManager
+from  tools.helper import COMPUTER_NAME
+from  tools.mongo_manager import MongoManager
 
 # pylint: disable=unnecessary-lambda
 
@@ -338,7 +338,7 @@ class TableSetupActionAndSignals(QObject):
     def test_all(self):
         """Test table button"""
         self.table_name = self.ui.table_name.currentText()
-        from poker.scraper.recognize_table import TableScraper
+        from  scraper.recognize_table import TableScraper
         table_dict = mongo.get_table(table_name=self.table_name)
         table_scraper = TableScraper(table_dict)
         table_scraper.screenshot = self.original_screenshot

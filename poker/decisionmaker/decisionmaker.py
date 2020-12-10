@@ -60,14 +60,14 @@ class Decision(DecisionBase):
             t.minBet = self.pot_multiple
         else:
             try:
-                t.minCall = float(t.currentCallValue)
+                t.minCall = float(t.table.currentCallValue)
             except:
                 t.minCall = float(0.0)
-                if t.checkButton == False:
+                if t.table.checkButton == False:
                     log.warning(
                         "Failed to convert current Call value, saving error.png, deriving from bet value, result:")
                     self.DeriveCallButtonFromBetButton = True
-                    t.minCall = np.round(float(t.get_current_bet_value(p)) / 2, 2)
+                    t.minCall = np.round(float(t.get_current_bet_value()) / 2, 2)
                     log.info("mincall: " + str(t.minCall))
                     # adjMinCall=minCall*c1*c2
 
@@ -181,7 +181,7 @@ class Decision(DecisionBase):
                          t.maxEquityCall, t.max_X, t.power1)
         self.maxCallE = round(d.y[0], 2)
 
-        if not t.other_player_has_initiative and not t.checkButton:
+        if not t.other_player_has_initiative and not t.table.checkButton:
             opponent_raised_without_initiative = 1
             log.info(
                 "Other player has no initiative and there is no check button. Activate increased required equity for betting")
@@ -258,7 +258,7 @@ class Decision(DecisionBase):
     def preflop_table_analyser(self, t, h, p):
         if t.gameStage == GameStages.PreFlop.value:
             m = MonteCarlo()
-            crd1, crd2 = m.get_two_short_notation(t.mycards)
+            crd1, crd2 = m.get_two_short_notation(t.table.mycards)
             crd1 = crd1.upper()
             crd2 = crd2.upper()
 
@@ -280,7 +280,6 @@ class Decision(DecisionBase):
                 sheet = excel_file[backup_sheet_name]
                 log.warning("Sheetname not found: " + sheet_name)
                 log.warning("Backup sheet in use: " + backup_sheet_name)
-                t.entireScreenPIL.save('sheet_not_found.png')
             sheet['Hand'] = sheet['Hand'].apply(lambda x: str(x).upper())
 
             handlist = set(sheet['Hand'].tolist())
@@ -504,13 +503,13 @@ class Decision(DecisionBase):
         if int(p.selected_strategy[
                    'minimum_bet_size']) == 4 and self.decision == DecisionTypes.bet3: self.decision = DecisionTypes.bet4
 
-        if t.checkButton == False and t.minCall == 0.0 and p.selected_strategy['use_pot_multiples'] == 0:
+        if t.table.checkButton == False and t.minCall == 0.0 and p.selected_strategy['use_pot_multiples'] == 0:
             self.ErrCallButton = True
             log.error("Call button or pot multiple had no value")
         else:
             self.ErrCallButton = False
 
-        if t.allInCallButton and self.decision != DecisionTypes.fold:
+        if t.table.allInCallButton and self.decision != DecisionTypes.fold:
             self.decision = DecisionTypes.call
 
         h.lastSecondRoundAdjustment = self.secondRoundAdjustment
@@ -525,7 +524,7 @@ class Decision(DecisionBase):
         if self.decision == DecisionTypes.bet3: h.myLastBet = t.totalPotValue / 2
         if self.decision == DecisionTypes.bet4: h.myLastBet = t.totalPotValue
 
-        if t.checkButton:
+        if t.table.checkButton:
             if self.decision == DecisionTypes.fold: self.decision = DecisionTypes.check
             if self.decision == DecisionTypes.call: self.decision = DecisionTypes.check
             if self.decision == DecisionTypes.call_deception: self.decision = DecisionTypes.check_deception
@@ -549,10 +548,10 @@ class Decision(DecisionBase):
             log.info('Make preflop decision based on equity, not using preflot table')
             self.calling(t, p, h)
             self.betting(t, p, h)
-            if t.checkButton:
+            if t.table.checkButton:
                 self.check_deception(t, p, h)
 
-            if t.allInCallButton == False and t.equity >= float(p.selected_strategy[
+            if t.table.allInCallButton == False and t.equity >= float(p.selected_strategy[
                                                                     'secondRiverBetPotMinEquity']) and t.gameStage == GameStages.River.value and h.histGameStage == GameStages.River.value:
                 self.decision = DecisionTypes.bet4
 

@@ -11,7 +11,7 @@ from pydocstyle.config import ConfigurationParser, IllegalConfiguration
 from pylint import lint
 from pylint.reporters.text import TextReporter
 
-from poker.tools.helper import get_dir
+from  tools.helper import get_dir
 
 # pylint: disable=anomalous-backslash-in-string,too-few-public-methods,inconsistent-return-statements
 
